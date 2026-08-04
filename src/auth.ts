@@ -6,7 +6,7 @@ import { encode as base64Encode } from 'base-64';
 import * as Keychain from 'react-native-keychain';
 
 const LOGIN_URL = 'http://localhost:3001/api/wanaka/accounts/login';
-const KEYCHAIN_SERVICE = 'com.budget.auth';
+const KEYCHAIN_SERVICE = 'com.furia.auth';
 
 type LoginResponse = {
   accesstoken: string;

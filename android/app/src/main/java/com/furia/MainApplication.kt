@@ -1,4 +1,4 @@
-package com.budget
+package com.furia
 
 import android.app.Application
 import com.facebook.react.PackageList

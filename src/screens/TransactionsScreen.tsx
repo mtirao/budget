@@ -3,8 +3,8 @@
  */
 
 import { FlatList, StyleSheet, Text, useColorScheme, View } from 'react-native';
-import TransactionRow from '../components/TransactionRow';
-import { getSortedByDateDesc, type Transaction } from '../data/transactions';
+import TransactionRow from '../../components/TransactionRow';
+import { getSortedByDateDesc, type Transaction } from '../../data/transactions';
 
 const sortedTransactions = getSortedByDateDesc();
 

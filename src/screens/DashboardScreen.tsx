@@ -12,14 +12,14 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-import TransactionRow from '../components/TransactionRow';
+import TransactionRow from '../../components/TransactionRow';
 import {
   formatCurrency,
   getBalance,
   getExpenseTotal,
   getIncomeTotal,
   getSortedByDateDesc,
-} from '../data/transactions';
+} from '../../data/transactions';
 import type { HomeTabParamList } from '../navigation/types';
 
 const RECENT_COUNT = 5;

@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
 
     factory.startReactNative(
-      withModuleName: "budget",
+      withModuleName: "furia",
       in: window,
       launchOptions: launchOptions
     )
