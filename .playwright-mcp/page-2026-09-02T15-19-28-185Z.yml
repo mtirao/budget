@@ -1,0 +1,8 @@
+- generic [ref=e4]:
+  - heading "Welcome back" [level=1] [ref=e5]
+  - generic [ref=e6]: Email
+  - textbox "Email" [ref=e7]:
+    - /placeholder: you@example.com
+  - generic [ref=e8]: Password
+  - textbox "Password" [ref=e9]
+  - button "Log In" [ref=e10] [cursor=pointer]

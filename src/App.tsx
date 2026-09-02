@@ -1,5 +1,4 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
-import HomeLayout from './layouts/HomeLayout';
 import RequireAuth from './routes/RequireAuth';
 import DashboardPage from './pages/DashboardPage';
 import LoginPage from './pages/LoginPage';
@@ -10,11 +9,11 @@ import GamesPlayerPage from './pages/GamesPlayerPage';
 import SettingsPage from './pages/SettingsPage';
 
 /**
- * Mirrors the native navigation tree: a root stack holding Login, the tabbed
- * Home area, and PlayerDetail pushed on top of (not nested inside) the tabs.
- * The tab bar becomes HomeLayout's nav + <Outlet />; the stack's `replace` on
- * login/logout becomes <Navigate replace> so Back can't return to a screen the
- * user has left.
+ * There is no tab bar anymore — DashboardPage owns the app's one page shell
+ * (sidebar/top bar/mobile nav, ported from design.html), and every other
+ * screen is a plain sibling route reached from its links. The stack's
+ * `replace` on login/logout becomes <Navigate replace> so Back can't return
+ * to a screen the user has left.
  */
 const router = createBrowserRouter([
   {
@@ -24,18 +23,13 @@ const router = createBrowserRouter([
   {
     element: <RequireAuth />,
     children: [
-      {
-        element: <HomeLayout />,
-        children: [
-          { index: true, element: <Navigate to="/dashboard" replace /> },
-          { path: 'dashboard', element: <DashboardPage /> },
-          { path: 'players', element: <PlayersPage /> },
-          { path: 'games', element: <GamesPage /> },
-          {path: 'games/:gameId', element: <GamesPlayerPage />},
-          { path: 'settings', element: <SettingsPage /> },
-        ],
-      },
+      { index: true, element: <Navigate to="/dashboard" replace /> },
+      { path: 'dashboard', element: <DashboardPage /> },
+      { path: 'players', element: <PlayersPage /> },
       { path: 'players/:playerId', element: <PlayerDetailPage /> },
+      { path: 'games', element: <GamesPage /> },
+      { path: 'games/:gameId', element: <GamesPlayerPage /> },
+      { path: 'settings', element: <SettingsPage /> },
     ],
   },
   {

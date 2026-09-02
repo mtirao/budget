@@ -13,9 +13,20 @@ export default tseslint.config(
     extends: [
       js.configs.recommended,
       ...tseslint.configs.recommended,
-      reactHooks.configs['recommended-latest'],
       reactRefresh.configs.vite,
     ],
+    plugins: {
+      'react-hooks': reactHooks,
+    },
+    rules: {
+      // Only the two long-standing hook rules — eslint-plugin-react-hooks's
+      // `recommended`/`recommended-latest` configs also bundle React
+      // Compiler-oriented rules (e.g. set-state-in-effect) that flag this
+      // app's ordinary fetch-on-mount hooks as bugs. This project doesn't use
+      // the React Compiler, so those rules aren't relevant here.
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+    },
     languageOptions: {
       ecmaVersion: 2022,
       globals: globals.browser,

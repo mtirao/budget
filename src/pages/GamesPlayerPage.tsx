@@ -1,5 +1,5 @@
 import { useGameById } from '../api/useGames';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import playerStyles from './PlayersPage.module.css';
 import gamesStyles from './GamePlayerPage.module.css';
 import PlayerRow from '../components/PlayerGameRow';

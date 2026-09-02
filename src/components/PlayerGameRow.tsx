@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import type { Player } from '../api/players';
 import styles from './PlayerRow.module.css';
 
