@@ -1,0 +1,30 @@
+.container {
+  background-color: var(--bg);
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  padding: 20px 20px 8px;
+  color: var(--text);
+}
+
+.listContent {
+  padding: 0 20px 20px;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.message {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.errorMessage {
+  color: var(--negative);
+}

@@ -16,11 +16,7 @@ type Props = {
  */
 function PlayerRow({ player }: Props) {
   return (
-    <Link
-      to={`/players/${player.id}`}
-      state={{ player }}
-      className={styles.row}
-    >
+    <div className={styles.row}>
       <span className={styles.badge} aria-hidden="true">
         {player.position.charAt(0)}
       </span>
@@ -33,7 +29,7 @@ function PlayerRow({ player }: Props) {
           {player.position} · {player.team}
         </span>
       </span>
-    </Link>
+    </div>
   );
 }
 

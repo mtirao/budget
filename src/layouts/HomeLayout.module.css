@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--bg);
+}
+
+.content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.tabBar {
+  display: flex;
+  border-top: 1px solid var(--border);
+  background-color: var(--bg);
+  /* Keeps the bar clear of the home indicator on iOS Safari. */
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 0;
+  text-decoration: none;
+  color: var(--text-muted);
+}
+
+.tabActive {
+  color: var(--accent);
+}
+
+.tabIcon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.tabLabel {
+  font-size: 11px;
+  font-weight: 600;
+}
