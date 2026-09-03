@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import NavigationBar from '../components/NavigationBar';
 
 /**
  * Ported from design.html ("SpikeForce Dashboard"). All figures below are the
@@ -78,7 +79,7 @@ const RESULT_BADGE_CLASSES: Record<'WIN' | 'LOSS', string> = {
 
 function DashboardPage() {
   return (
-    <div className="bg-background text-on-background font-body-md text-body-md antialiased overflow-x-hidden min-h-screen">
+     <div className="bg-background text-on-background font-body-md text-body-md antialiased overflow-x-hidden min-h-screen">
       {/* SideNavBar */}
       <nav className="hidden md:block h-screen w-64 fixed left-0 top-0 bg-primary shadow-md z-50">
         <div className="flex flex-col p-md h-full">
@@ -90,7 +91,7 @@ function DashboardPage() {
             />
             <div>
               <h1 className="font-headline-md text-headline-md font-bold text-on-primary">
-                SpikeForce Admin
+                CV Furia Admin
               </h1>
               <p className="font-body-sm text-body-sm text-on-primary-container">
                 Elite Club Management
@@ -131,24 +132,6 @@ function DashboardPage() {
           </span>
         </div>
         <div className="flex items-center gap-lg">
-          <div className="relative">
-            <span className="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">
-              search
-            </span>
-            <input
-              className="pl-[36px] pr-sm py-xs rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest text-body-sm"
-              placeholder="Search..."
-              type="text"
-            />
-          </div>
-          <div className="flex items-center gap-sm text-on-surface-variant">
-            <button className="hover:text-secondary transition-colors p-xs rounded-full hover:bg-surface-container">
-              <span className="material-symbols-outlined">notifications</span>
-            </button>
-            <button className="hover:text-secondary transition-colors p-xs rounded-full hover:bg-surface-container">
-              <span className="material-symbols-outlined">help</span>
-            </button>
-          </div>
           <img
             alt="User Profile"
             className="w-10 h-10 rounded-full border border-outline-variant"
