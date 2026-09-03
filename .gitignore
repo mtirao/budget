@@ -57,6 +57,8 @@ yarn-error.log
 **/fastlane/screenshots
 **/fastlane/test_output
 
+
+
 # Bundle artifact
 *.jsbundle
 
@@ -69,6 +71,9 @@ yarn-error.log
 
 # testing
 /coverage
+
+# Playwright MCP output (screenshots, console logs, snapshots)
+.playwright-mcp/
 
 # Yarn
 .yarn/*
