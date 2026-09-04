@@ -7,7 +7,11 @@ const SIDE_NAV_LINKS = [
   { to: '/settings', label: 'Settings', icon: 'settings', active: false },
 ];
 
-function NavigationBar() {
+type Props = {
+  activeLink?: string;
+};
+
+function NavigationBar({ activeLink }: Props) {
   return (
     <nav className="hidden md:block h-screen w-64 fixed left-0 top-0 bg-primary shadow-md z-50">
       <div className="flex flex-col p-md h-full">
@@ -33,7 +37,7 @@ function NavigationBar() {
               <Link
                 to={link.to}
                 className={
-                  link.active
+                  link.to === activeLink
                     ? 'flex items-center gap-sm p-sm bg-secondary-container text-on-secondary-container rounded-lg font-label-bold hover:translate-x-1 transition-transform duration-200'
                     : 'flex items-center gap-sm p-sm text-on-primary-fixed-variant hover:bg-primary-container rounded-lg font-label-bold hover:translate-x-1 transition-transform duration-200'
                 }

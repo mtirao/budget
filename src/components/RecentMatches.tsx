@@ -1,17 +1,12 @@
 import { Link } from 'react-router-dom';
+import type { Game } from '../api/dashboard';
 
-const RECENT_MATCHES = [
-  { opponent: 'Iron Blockers', date: 'Oct 21', score: '3 - 1', result: 'WIN' as const },
-  { opponent: 'Net Ninjas', date: 'Oct 18', score: '3 - 0', result: 'WIN' as const },
-  { opponent: 'Sky High VBC', date: 'Oct 14', score: '2 - 3', result: 'LOSS' as const },
-];
 
-const RESULT_BADGE_CLASSES: Record<'WIN' | 'LOSS', string> = {
-  WIN: 'bg-surface-container-high text-primary',
-  LOSS: 'bg-error-container text-on-error-container',
+type Props = {
+    games?: Game[];
 };
 
-function RecentMatches() {
+function RecentMatches({ games }: Props) {
     return (
         <section className="bg-surface rounded-xl card-shadow overflow-hidden border border-surface-variant flex-1">
             <div className="p-lg border-b border-outline-variant flex justify-between items-center">
@@ -36,7 +31,7 @@ function RecentMatches() {
                 </tr>
                 </thead>
                 <tbody className="font-body-md text-body-md text-on-background">
-                {RECENT_MATCHES.map(match => (
+                {games?.map(match => (
                     <tr
                     key={match.opponent}
                     className="border-b border-surface-variant hover:bg-surface-container-lowest transition-colors"
@@ -46,7 +41,7 @@ function RecentMatches() {
                     <td className="px-lg py-md">{match.score}</td>
                     <td className="px-lg py-md">
                         <span
-                        className={`inline-flex items-center px-2 py-1 rounded-full font-label-bold text-[12px] ${RESULT_BADGE_CLASSES[match.result]}`}
+                        className={`inline-flex items-center px-2 py-1 rounded-full font-label-bold text-[12px] ${match.resultBg}`}
                         >
                         {match.result}
                         </span>

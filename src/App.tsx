@@ -3,10 +3,10 @@ import RequireAuth from './routes/RequireAuth';
 import DashboardPage from './pages/DashboardPage';
 import LoginPage from './pages/LoginPage';
 import PlayerDetailPage from './pages/PlayerDetailPage';
-import PlayersPage from './pages/PlayersPage';
-import GamesPage from './pages/GamesPage';
-import GamesPlayerPage from './pages/GamesPlayerPage';
+import MatchesPage from './pages/MatchesPage';
 import SettingsPage from './pages/SettingsPage';
+import PlayersPage from './pages/PlayersPage';
+import GameDetailsPage  from './pages/GameDetailsPage';
 
 /**
  * There is no tab bar anymore — DashboardPage owns the app's one page shell
@@ -25,10 +25,10 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Navigate to="/dashboard" replace /> },
       { path: 'dashboard', element: <DashboardPage /> },
-      { path: 'players', element: <PlayersPage /> },
-      { path: 'players/:playerId', element: <PlayerDetailPage /> },
-      { path: 'games', element: <GamesPage /> },
-      { path: 'games/:gameId', element: <GamesPlayerPage /> },
+      { path: '/games', element: <MatchesPage /> },
+      { path: '/players', element: <PlayersPage /> },
+      { path: '/players/:playerId', element: <PlayerDetailPage /> },
+      { path: '/gamedetails', element: <GameDetailsPage/>},
       { path: 'settings', element: <SettingsPage /> },
     ],
   },

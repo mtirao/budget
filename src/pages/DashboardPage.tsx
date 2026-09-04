@@ -9,11 +9,12 @@ import playerStyles from './PlayersPage.module.css';
 
 function DashboardPage() {
     const { data, isLoading, error } = useDashboard();
+    const activeLink = '/dashboard';
 
     return (
         <div className="bg-background text-on-background font-body-md text-body-md antialiased overflow-x-hidden min-h-screen">
-            <NavigationBar />
-            <TopNavbar />
+            <NavigationBar activeLink={activeLink} />
+            <TopNavbar activeLink={activeLink} />
             {/* Main Content Area — offset with md:ml-64 so it clears the fixed
                 sidebar; the loading/error/empty states need that offset just
                 as much as the loaded content does, or they render hidden
@@ -31,17 +32,17 @@ function DashboardPage() {
                 {data?.games && data.games.length > 0 && (
                     <div>
                         {/* Quick Stats Row */}
-                        <QuickStats />
+                        <QuickStats stats={data?.quickStats} />
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-lg">
                             {/* Left Column: Next Match & Recent Matches */}
                             <div className="lg:col-span-2 flex flex-col gap-lg">
-                                <NextMatch />
-                                <RecentMatches />
+                                <NextMatch nextGame={data?.nextGame} details={false} />
+                                <RecentMatches games={data?.games} />
                             </div>
 
                             {/* Right Column: Top Scorers Leaderboard */}
                             <div className="lg:col-span-1">
-                                <TopScorers />
+                                <TopScorers playerStats={data?.playerStats} />
                             </div>
                         </div>
                     </div>

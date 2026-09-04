@@ -1,12 +1,19 @@
 import { Link } from 'react-router-dom';
 
+type Props = {
+  activeLink?: string;
+};
 
-function TopNavbar() {
+function TopNavbar({ activeLink }: Props) {
     return (
         <header className="hidden md:flex bg-surface text-primary border-b border-outline-variant sticky top-0 z-40 justify-between items-center ml-64 px-xl py-md w-[calc(100%-16rem)]">
         <div>
           <span className="font-headline-md text-headline-md font-bold text-primary">
-            Dashboard
+            {activeLink === '/dashboard' && 'Dashboard'}
+            {activeLink === '/games' && 'Matches'}
+            {activeLink === '/players' && 'Players'}
+            {activeLink === '/settings' && 'Settings'}
+            {activeLink === '/gamedetails' && 'Game Details'}
           </span>
         </div>
         <div className="flex items-center gap-lg">

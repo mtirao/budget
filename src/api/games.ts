@@ -1,6 +1,6 @@
 import { getAccessToken } from '../auth';
 import { DASHBOARD_BASE_URL} from './config';
-import { type Game } from './dashboard';
+import { type Game } from './useGames';
 import {type Player} from './players';
 
 const GAMES_URL = `${DASHBOARD_BASE_URL}/api/games/list`

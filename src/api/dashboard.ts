@@ -6,20 +6,42 @@ const DASHBOARD_URL = `${DASHBOARD_BASE_URL}/api/dashboard`;
 
 
 export type Game = {
+    opponent: string;
+    date: string;
+    score: number;
+    result: string;
+    resultBg: string;
+};
+
+export type Stats = {
+    label: string;
+    value: string;
+    caption: string;
+    icon: string;
+    iconBg: string;
+};
+
+export type NextGame = {
     id: number;
     court: string;
     date: number;
-    local: string;
-    setlocal: number;
-    setvisit: number;
-    visit: string;
-};
+    opponent: string;
+}
+
+export type PlayerStats = {
+    rank: number;
+    name: string;
+    position: string;
+    points: number;
+    photo: string;
+    initials: string;
+}
 
 export type DashboardData = {
+    nextGame: NextGame | null;
     games: Game[];
-    wins: number;
-    losses: number;
-    totalgames: number;
+    quickStats: Stats[];
+    playerStats: PlayerStats[];
 };
 
 export async function getDashboardData(): Promise<DashboardData> {

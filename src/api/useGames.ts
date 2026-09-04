@@ -1,7 +1,17 @@
 import { useEffect, useState } from 'react';
 import { getGames, getGameById} from './games';
-import type { Game } from './dashboard';
 import type { PlayerGame } from './games';
+
+export type Game = {
+    court: string;
+    date: number;
+    id: number;
+    local: string;
+    setlocal: number;
+    setvisit: number;
+    visit: string;
+}
+
 
 type GamesState = {
   games: Game[];
@@ -58,12 +68,21 @@ export function useGames(): GamesState {
   return { games, isLoading, error };
 }
 
-export function useGameById(id: number): PlayerGameState {
+export function useGameById(id: number | undefined): PlayerGameState {
   const [game, setGame] = useState<PlayerGame | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(id !== undefined);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // No id yet (e.g. GameDetailsPage loaded without router state) — there's
+    // nothing to fetch.
+    if (id === undefined) {
+      setGame(null);
+      setIsLoading(false);
+      setError(null);
+      return;
+    }
+
     let active = true;
 
     setIsLoading(true);

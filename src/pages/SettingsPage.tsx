@@ -1,24 +1,17 @@
-import { useNavigate } from 'react-router-dom';
-import { logout } from '../auth';
-import styles from './SettingsPage.module.css';
+import NavigationBar from '../components/NavigationBar';
+import TopNavbar from '../components/TopNavbar';
+
 
 function SettingsPage() {
-  const navigate = useNavigate();
+    const activeLink = '/settings';
 
-  const handleLogout = () => {
-    logout();
-    // `replace` so Back can't return into the authenticated area.
-    navigate('/login', { replace: true });
-  };
-
-  return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Settings</h1>
-      <button className={styles.button} type="button" onClick={handleLogout}>
-        Log Out
-      </button>
-    </div>
-  );
+    return (
+        <div className="bg-background text-on-background font-body-md text-body-md antialiased overflow-x-hidden min-h-screen">
+            <NavigationBar activeLink={activeLink} />
+            <TopNavbar activeLink={activeLink} />
+        </div>
+    );
 }
+
 
 export default SettingsPage;
